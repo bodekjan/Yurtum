@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:id="@+id/llToast" >
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/llToastContent"
+        android:layout_marginLeft="1dip"
+        android:layout_marginRight="1dip"
+        android:layout_marginBottom="1dip"
+        android:layout_width="300dp"
+        android:padding="10dp"
+        android:background="@drawable/dialog_bg" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <np.TextView
+                style="@style/ALKATIP"
+                android:textColor="@color/textdark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/status_newversion"
+                android:textSize="13dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <np.Button
+            style="@style/SubmitButtonStyle"
+            android:text="@string/button_update"
+            android:id="@+id/dialog_ver_submit"/>
+
+    </LinearLayout>
+
+</LinearLayout>

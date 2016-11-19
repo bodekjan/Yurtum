@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.bodekjan.uyweather.activities.AddCityActivity"
+    android:background="#f0f0f0">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_blue_light"
+        android:layout_height="49dp">
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:visibility="invisible"
+            android:id="@+id/backarrow"
+            style="@style/HeaderAdd"
+            app:iiv_color="@color/iconcolor"
+            app:iiv_icon="gmi-arrow-left" />
+        <np.TextView
+            style="@style/HeaderTitle"
+            android:textColor="@color/textcolor"
+            android:text="@string/city_title"
+            android:id="@+id/citytitle"
+            android:gravity="center" />
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/citymenu"
+            style="@style/HeaderAdd"
+            app:iiv_color="@color/iconcolor"
+            app:iiv_icon="gmi-menu" />
+    </LinearLayout>
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/citylist"
+        android:scrollbars="none"
+        android:divider="@color/bordergrey"
+        android:dividerHeight="1px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

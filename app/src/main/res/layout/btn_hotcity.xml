@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bodekjan.uyweather.widget.MyCityButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/bg_city_btn"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <np.TextView
+        style="@style/ALKATIP"
+        android:textColor="@color/textdark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/default_title"
+        android:id="@+id/hotcity"
+        android:layout_columnWeight="1"
+        android:gravity="center" />
+</com.bodekjan.uyweather.widget.MyCityButton>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+                <LinearLayout
+                    style="@style/SettingButtonStyle"
+                    android:clickable="false">
+                    <np.Button
+                        style="@style/ALKATIP"
+                        android:textColor="@color/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_active_btn"
+                        android:text="@string/setting_validate"
+                        android:id="@+id/wechatactive"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textSize="13dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="10dp">
+                        <np.TextView
+                            style="@style/ALKATIP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:text="@string/setting_appstatus"
+                            android:textSize="11dp"
+                            android:id="@+id/textView4"
+                            android:gravity="center_vertical" />
+                        <np.TextView
+                            style="@style/ALKATIP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:text="@string/value_invalidate"
+                            android:textColor="@android:color/holo_red_dark"
+                            android:textSize="13dp"
+                            android:id="@+id/activestatus"
+                            android:gravity="center_vertical" />
+                    </LinearLayout>
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="4dp"
+                        android:id="@+id/activeicon"
+                        android:background="@color/backgrey"
+                        app:iiv_color="@android:color/holo_red_dark"
+                        app:iiv_icon="gmi-lock" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/aboutactivebutton"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_aboutvalidate"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@color/settingyellow"
+                        app:iiv_icon="gmi-key" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+                <LinearLayout
+                    android:id="@+id/setting_language"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingValueStyle"
+                        android:text="@string/default_title"
+                        android:id="@+id/setting_item_lang"/>
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_lang"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@color/colorAccent"
+                        app:iiv_icon="gmi-globe" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/setting_statusbar"
+                    style="@style/SettingButtonStyle">
+                    <ImageView
+                        android:id="@+id/setting_status_img"
+                        android:layout_width="48dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_launcher" />
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_status"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@color/snackbgdbg"
+                        app:iiv_icon="gmi-card" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/setting_timezone"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingValueStyle"
+                        android:text="@string/default_title"
+                        android:id="@+id/setting_item_zone"/>
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_zone"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/background_dark"
+                        app:iiv_icon="gmi-globe" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/usebutton"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_inst"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/holo_green_dark"
+                        app:iiv_icon="gmi-help" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/commentbutton"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_comment"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@color/colorPrimaryDark"
+                        app:iiv_icon="gmi-comments" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/moneybutton"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_coop"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/holo_red_dark"
+                        app:iiv_icon="gmi-favorite" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+                <LinearLayout
+                    android:id="@+id/versionbutton"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingValueStyle"
+                        android:text="1.0"
+                        android:id="@+id/setting_item_version"/>
+                    <np.TextView
+                        android:id="@+id/newversiontext"
+                        android:text="@string/setting_newver"
+                        style="@style/SettingHaveNew"/>
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_ver"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/holo_blue_dark"
+                        app:iiv_icon="gmi-cloud-upload" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/aboutbutton"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_about"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/darker_gray"
+                        app:iiv_icon="gmi-account-circle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

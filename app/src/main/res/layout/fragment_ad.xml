@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <LinearLayout
+                    android:id="@+id/setting_adswitch"
+                    style="@style/SettingButtonStyle">
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/holo_blue_dark"
+                        app:iiv_icon="gmi-money" />
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_ad"
+                        android:layout_marginRight="8dp" />
+                    <ImageView
+                        android:id="@+id/setting_ad_img"
+                        android:layout_width="48dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_launcher" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <np.TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/textdark"
+                    android:textSize="13dp"
+                    android:text="@string/ad_info"
+                    android:id="@+id/textView2"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

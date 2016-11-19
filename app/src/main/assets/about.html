@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        @font-face {
+            font-family: 'ALKATIP';
+            src:local("ALKATIP"),
+            url("fonts/ALKATIP.TTF") format("TrueType");
+            font-weight: normal;
+            font-style: normal;
+        }
+        #contentuy{
+            direction:rtl;
+            font-family:ALKATIP;
+            font-size:13px;
+            color:#222;
+            text-align:justify;
+        }
+        #contentzh{
+            direction:ltr;
+            font-size:13px;
+            color:#222;
+            text-align:justify;
+        }
+        .hide{
+            display: none;
+        }
+        .table{
+            text-indent: 0;
+            width:100%;
+            font-size: 12px;
+        }
+        .green{
+            color: #33b5e5;
+        }
+        .red{
+            color: red
+        }
+        p{
+            line-height: 24px;
+        }
+        #contentuy th{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="contentuy">
+       <img src="images/fox.jpg" style="display:block; width:80px; height:80px; margin:40px auto 20px auto; border-radius:12px 0 12px 0"/>
+       <p style="display:block; width:90%; text-align:center; margin:15px auto">ئەسسالامۇ ئەلەيكۇم</p>
+       <p style="display:block; background-color:#ababab; color:#fff; text-indent:16px; width:100%; text-align:justfy; margin:auto; padding:5px 10px">بۇ ئەپنى ھاۋارايى ئۇچۇرلىرىنى يۇرتداشلارغا ئۇيغۇر تىلىدا، تېز ھەم توغرا تەمىنلەش ئۈچۈن تۈزۈپ چىقتىم، ئەپنىڭ سىزنىڭ كۈندىلىك تۇرمۇشىڭىزغا قولايلىق ئېلىپ كىلىشىنى ھەمدە ياختۇرىشىڭىزنى ئۈمىد قىلىمەن.</p>
+       <p style="display:block; text-indent:16px; width:100%; text-align:justfy; margin:auto; padding:5px 10px">كومپيۇتېر كەسپىنىڭ ئۇقۇغۇچىسى بولغاچ كۆپچىلىكنىڭ ياقتۇرىشىغا ئىرىشەلىگۈدەك ھەقىقىي ئىشلىتىش قىممىتى بولغان ئۇيغۇرچە پىروگرامما تۈزۈش ئارزۇيىدا بۇ ئەپنى تۈزۈپ چىقتىم، ئەپنىڭ ئەسلى كودىنى ۋە تۈزۈپ چىقىش جەريانىدىكى تەجرىبىلىرىمنى كەسىپداش دوستلار بىلەن ئورتاقلىشىشنى خالايمەن، ئالاقىلاشماقچى بولسىڭىز:</p>
+       <p style="display:block; background-color:#ababab; color:#fff; width:100%; height:48px; text-align:center; margin:auto; padding:5px 20px;">
+           
+           <img src="images/qq.png" style="width:32px; margin-top:4px; height:32px; display:block; float:right"/>
+           <span style="display:block; float:right; line-height:48px">&nbsp;&nbsp;16201344</span>
+           </p>
+    </div>
+    <div id="contentzh">
+       <img src="images/fox.jpg" style="display:block; width:80px; height:80px; margin:40px auto 20px auto; border-radius:12px 0 12px 0"/>
+       <p style="display:block; width:90%; text-align:center; margin:15px auto">你好</p>
+       <p style="display:block; background-color:#ababab; color:#fff; text-indent:16px; width:100%; text-align:justfy; margin:auto; padding:5px 10px">此应用是我半年的安卓学习的总结，主要为西北地区的使用者提供中维文的天气预报信息为主，希望对你有用。</p>
+       <p style="display:block; text-indent:16px; width:100%; text-align:justfy; margin:auto; padding:5px 10px">欢迎程序员朋友们加我，一起交流一起进步！</p>
+       <p style="display:block; background-color:#ababab; color:#fff; width:100%; height:48px; text-align:center; margin:auto; padding:5px 10px;">
+           
+           <img src="images/qq.png" style="width:32px; margin-top:4px; height:32px; display:block; float:left"/>
+           <span style="display:block; float:left; line-height:48px">&nbsp;&nbsp;16201344</span>
+           </p>
+    </div>
+    <script>
+        var lang=myObj.funGetLang();
+        if(lang==0){
+            document.getElementById("contentzh").className="hide";
+        }else{
+            document.getElementById("contentuy").className="hide";
+        }
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="dist/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/weatherbg"
+    tools:context=".activities.MainActivity">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="49dp">
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/add"
+            style="@style/HeaderAdd"
+            app:iiv_color="@color/iconcolor"
+            app:iiv_icon="gmi-plus" />
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/share"
+            style="@style/HeaderAdd"
+            app:iiv_color="@color/iconcolor"
+            app:iiv_icon="gmi-share" />
+        <com.mikepenz.iconics.view.IconicsTextView
+                style="@style/WeatherTitle"
+                android:textColor="@color/textcolor"
+                android:text="@string/default_title"
+                android:id="@+id/citytitle"
+                android:layout_width="wrap_content" />
+        <com.mikepenz.iconics.view.IconicsImageView
+            style="@style/HeaderMenu"/>
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/menu"
+            style="@style/HeaderMenu"
+            app:iiv_color="@color/iconcolor"
+            app:iiv_icon="gmi-menu" />
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/citypager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="49dp"
+        android:layout_weight="1" >
+    </android.support.v4.view.ViewPager>
+
+    <FrameLayout
+        android:id="@+id/bannerarea"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="10dp">
+        <FrameLayout
+            android:id="@+id/bannerview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="left|top">
+        </FrameLayout>
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="3dp"
+            app:iiv_color="@color/textdark"
+            app:iiv_icon="gmi-close-circle"
+            android:layout_gravity="left|top" />
+    </FrameLayout>
+</FrameLayout>

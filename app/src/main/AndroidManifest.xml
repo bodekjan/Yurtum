@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bodekjan.uyweather">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/MyTheme">
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="580c9edac895764480000c1c"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Otkax"/>
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.AddCityActivity" />
+        <activity android:name=".activities.CityActivity" />
+        <activity android:name=".activities.WebActivity" />
+        <activity android:name=".activities.SettingActivity"></activity>
+        <activity android:name=".activities.TranslateActivity" />
+        <activity android:name=".activities.CompassActivity" />
+        <activity android:name=".wxapi.WXEntryActivity" android:exported="true"></activity>
+        <service android:name=".service.WeatherService"></service>
+
+        <receiver
+            android:name=".widget.FullSizeWidget"
+            android:label="5x1 YURTUM">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.bodekjan.homechanged"></action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/xml_fullwidget" />
+        </receiver>
+        <receiver
+            android:name=".widget.ExtraSizeWidget"
+            android:label="5x1 YURTUM">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.bodekjan.homechanged" />
+                <action android:name="com.bodekjan.homechangedxxx" />
+                <action android:name="com.bodekjan.timeupdate" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/xml_extrawidget" />
+        </receiver>
+        <receiver android:name=".receiver.ServiceReceiver"/>
+        <service android:name=".service.TimeService" android:process=":process1"></service>
+        <service android:name=".service.TimeServiceGuard" android:process=":process2"></service>
+        <receiver android:name=".receiver.TimeReceiver" android:process=":process1"/>
+        <receiver android:name=".receiver.TimeReceiverGuard" android:process=":process2"/>
+    </application>
+
+</manifest>

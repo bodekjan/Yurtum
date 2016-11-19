@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.MainActivity">
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:scrollbars="none"
+            android:layout_weight="1" >
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            style="@style/BigNumber"
+                            android:text="@string/default_curtemp"
+                            android:id="@+id/curtmp"/>
+                        <ImageView
+                            android:id="@+id/bigweather"
+                            style="@style/BigWeather"/>
+                    </LinearLayout>
+                    <np.TextView
+                        style="@style/BigDetail"
+                        android:text="@string/default_curtempstatus"
+                        android:id="@+id/curstatus"/>
+                    <np.TextView
+                        style="@style/TimePast"
+                        android:id="@+id/upstatus" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center">
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                style="@style/ThreeStatusIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_humidity" />
+                            <np.TextView
+                                style="@style/ThreeStatusTmp"
+                                android:text="@string/default_persent"
+                                android:id="@+id/pm" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_termo"
+                            android:gravity="center">
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                style="@style/ThreeStatusIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_thermometer" />
+                            <np.TextView
+                                style="@style/ThreeStatus"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/maxmintmp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center">
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                style="@style/ThreeStatusIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_barometer" />
+                            <np.TextView
+                                style="@style/ThreeStatus"
+                                android:text="@string/default_wind"
+                                android:id="@+id/wind" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp">
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/daytwo">
+                            <np.TextView
+                                style="@style/DayListLabel"
+                                android:text="@string/default_day"
+                                android:id="@+id/daytwotime" />
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                android:id="@+id/daytwoicon"
+                                style="@style/DayListIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_cloudy" />
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/textcolor"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/daytwotmp"
+                                android:gravity="center_vertical|center_horizontal" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/daythree">
+                            <np.TextView
+                                style="@style/DayListLabel"
+                                android:text="@string/default_day"
+                                android:id="@+id/daythreetime" />
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                android:id="@+id/daythreeicon"
+                                style="@style/DayListIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_cloudy" />
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/textcolor"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/daythreetmp"
+                                android:gravity="center_vertical|center_horizontal" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/dayfour">
+                            <np.TextView
+                                style="@style/DayListLabel"
+                                android:text="@string/default_day"
+                                android:id="@+id/dayfourtime"/>
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                android:id="@+id/dayfouricon"
+                                style="@style/DayListIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_cloudy" />
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/textcolor"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/dayfourtmp"
+                                android:gravity="center_vertical|center_horizontal" />
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/dayfive">
+                            <np.TextView
+                                style="@style/DayListLabel"
+                                android:text="@string/default_day"
+                                android:id="@+id/dayfivetime"/>
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                android:id="@+id/dayfiveicon"
+                                style="@style/DayListIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_cloudy" />
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/textcolor"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/dayfivetmp"
+                                android:gravity="center_vertical|center_horizontal" />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/daysix">
+                            <np.TextView
+                                style="@style/DayListLabel"
+                                android:text="@string/default_day"
+                                android:id="@+id/daysixtime"/>
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                android:id="@+id/daysixicon"
+                                style="@style/DayListIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_cloudy" />
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/textcolor"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/daysixtmp"
+                                android:gravity="center_vertical|center_horizontal" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/dayseven">
+                            <np.TextView
+                                style="@style/DayListLabel"
+                                android:text="@string/default_day"
+                                android:id="@+id/dayseventime"/>
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                android:id="@+id/daysevenicon"
+                                style="@style/DayListIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_cloudy" />
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/textcolor"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/dayseventmp"
+                                android:gravity="center_vertical|center_horizontal" />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/dayeight">
+                            <np.TextView
+                                style="@style/DayListLabel"
+                                android:text="@string/default_day"
+                                android:id="@+id/dayeighttime" />
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                android:id="@+id/dayeighticon"
+                                style="@style/DayListIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="wic_cloudy" />
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/textcolor"
+                                android:text="@string/default_maxmin"
+                                android:id="@+id/dayeighttmp"
+                                android:gravity="center_vertical|center_horizontal" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/DayList"
+                            android:id="@+id/moredays">
+                            <np.TextView
+                                style="@style/PanelTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=""
+                                android:id="@+id/daymorelabel"
+                                android:gravity="center_vertical|center_horizontal" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/OneDay">
+                        <np.TextView
+                            style="@style/PanelTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/title_oneday"
+                            android:paddingLeft="4dp"
+                            android:gravity="center_vertical|left" />
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart1"
+                            android:layout_width="match_parent"
+                            android:layout_height="128dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="12dp"/>
+                        <LinearLayout
+                            android:paddingBottom="6dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_alignParentTop="true"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                style="@style/TodayIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="gmi-brightness-2" />
+                            <np.TextView
+                                style="@style/TodayText"
+                                android:textSize="12dp"
+                                android:text="@string/default_title"
+                                android:id="@+id/sunset"/>
+                            <com.mikepenz.iconics.view.IconicsImageView
+                                style="@style/TodayIcon"
+                                app:iiv_color="@color/iconcolor"
+                                app:iiv_icon="gmi-brightness-5" />
+                            <np.TextView
+                                style="@style/TodayText"
+                                android:textSize="12dp"
+                                android:text="@string/default_title"
+                                android:id="@+id/sunrise"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/OneDay">
+                        <np.TextView
+                            style="@style/PanelTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/todayaqi"
+                            android:paddingLeft="4dp"
+                            android:gravity="center_vertical|left" />
+                        <LinearLayout
+                            android:paddingBottom="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp">
+                            <com.bodekjan.uyweather.widget.PMMeter
+                                android:id="@+id/meter"
+                                android:layout_width="180dp"
+                                android:layout_height="match_parent" />
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <np.TextView
+                                    android:id="@+id/aqitext"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="4dp"
+                                    android:paddingRight="0dp"
+                                    android:layout_marginRight="0dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                                <np.TextView
+                                    android:id="@+id/aqival"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="4dp"
+                                    android:paddingRight="0dp"
+                                    android:layout_marginRight="0dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                                <np.TextView
+                                    style="@style/TodayText"
+                                    android:paddingLeft="4dp"
+                                    android:paddingRight="0dp"
+                                    android:layout_marginRight="0dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:text="@string/air_info"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/OneDay">
+                        <np.TextView
+                            style="@style/PanelTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="4dp"
+                            android:text="@string/title_advice"
+                            android:gravity="center_vertical|left" />
+                        <RelativeLayout
+                            android:paddingBottom="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:id="@+id/adviceline1"
+                                android:layout_alignParentTop="true"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent">
+                                <com.mikepenz.iconics.view.IconicsImageView
+                                    style="@style/TodayIcon"
+                                    app:iiv_color="@color/iconcolor"
+                                    app:iiv_icon="gmi-brightness-6" />
+                                <np.TextView
+                                    style="@style/TodayText"
+                                    android:text="سىرىتقا چىقىشقا قولايلىق ئەمەس"
+                                    android:id="@+id/comf"/>
+
+                                <com.mikepenz.iconics.view.IconicsImageView
+                                    style="@style/TodayIcon"
+                                    app:iiv_color="@color/iconcolor"
+                                    app:iiv_icon="gmi-car" />
+                                <np.TextView
+                                    style="@style/TodayText"
+                                    android:text="ماشىنا يۇيۇشقا ماس كەلمەيدۇ"
+                                    android:id="@+id/cw"/>
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/adviceline2"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/adviceline1"
+                                android:layout_alignParentStart="true">
+                                <com.mikepenz.iconics.view.IconicsImageView
+                                    style="@style/TodayIcon"
+                                    app:iiv_color="@color/iconcolor"
+                                    app:iiv_icon="gmi-male" />
+                                <np.TextView
+                                    style="@style/TodayText"
+                                    android:text="New Text"
+                                    android:id="@+id/drsg"/>
+
+                                <com.mikepenz.iconics.view.IconicsImageView
+                                    style="@style/TodayIcon"
+                                    app:iiv_color="@color/iconcolor"
+                                    app:iiv_icon="gmi-hospital" />
+                                <np.TextView
+                                    style="@style/TodayText"
+                                    android:text="New Text"
+                                    android:id="@+id/flu"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/adviceline3"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/adviceline2"
+                                android:layout_alignParentStart="true">
+                                <com.mikepenz.iconics.view.IconicsImageView
+                                    style="@style/TodayIcon"
+                                    app:iiv_color="@color/iconcolor"
+                                    app:iiv_icon="gmi-camera" />
+                                <np.TextView
+                                    style="@style/TodayText"
+                                    android:text="New Text"
+                                    android:id="@+id/sport"/>
+
+                                <com.mikepenz.iconics.view.IconicsImageView
+                                    style="@style/TodayIcon"
+                                    app:iiv_color="@color/iconcolor"
+                                    app:iiv_icon="gmi-bike" />
+                                <np.TextView
+                                    style="@style/TodayText"
+                                    android:text="New Text"
+                                    android:id="@+id/trav"/>
+
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/newsarea"
+                        android:visibility="gone"
+                        style="@style/OneDay">
+                        <np.TextView
+                            style="@style/PanelTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/todayaqi"
+                            android:paddingRight="4dp"
+                            android:gravity="center_vertical|right" />
+                        <LinearLayout
+                            android:paddingBottom="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+                                <np.TextView
+                                    android:id="@+id/newsone"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="0dp"
+                                    android:paddingRight="4dp"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:textSize="12dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                                <np.TextView
+                                    android:id="@+id/newstwo"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="0dp"
+                                    android:paddingRight="4dp"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:textSize="12dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                                <np.TextView
+                                    android:id="@+id/newstree"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="0dp"
+                                    android:paddingRight="4dp"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:textSize="12dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                                <np.TextView
+                                    android:id="@+id/newsfour"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="0dp"
+                                    android:paddingRight="4dp"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:textSize="12dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                                <np.TextView
+                                    android:id="@+id/newsfive"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="0dp"
+                                    android:paddingRight="4dp"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:textSize="12dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                                <np.TextView
+                                    android:id="@+id/newssix"
+                                    style="@style/TodayText"
+                                    android:paddingLeft="0dp"
+                                    android:paddingRight="4dp"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:textSize="12dp"
+                                    android:text="ھاۋا سۈپىتى: ناچار"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </com.baoyz.widget.PullRefreshLayout>
+</LinearLayout>

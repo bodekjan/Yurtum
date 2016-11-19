@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/full_widgetcontainer"
+        android:background="@drawable/bg_widget"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/day1label"
+                android:gravity="center"/>
+
+            <ImageView
+                style="@style/FullWidgetIcon"
+                android:id="@+id/day1image"
+                android:src="@mipmap/w02"
+                android:layout_below="@+id/day1label"/>
+            <TextView
+                style="@style/FullWidgetTemp"
+                android:text="--°/--°"
+                android:id="@+id/day1temp"
+                android:textAlignment="gravity"
+                android:layout_below="@+id/day1image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/day2label"
+                android:gravity="center"/>
+
+            <ImageView
+                style="@style/FullWidgetIcon"
+                android:id="@+id/day2image"
+                android:src="@mipmap/w02"
+                android:layout_below="@+id/day2label"/>
+            <TextView
+                style="@style/FullWidgetTemp"
+                android:text="--°/--°"
+                android:id="@+id/day2temp"
+                android:textAlignment="gravity"
+                android:layout_below="@+id/day2image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/day3label"
+                android:gravity="center"/>
+
+            <ImageView
+                style="@style/FullWidgetIcon"
+                android:id="@+id/day3image"
+                android:src="@mipmap/w02"
+                android:layout_below="@+id/day3label"/>
+            <TextView
+                style="@style/FullWidgetTemp"
+                android:text="--°/--°"
+                android:id="@+id/day3temp"
+                android:textAlignment="gravity"
+                android:layout_below="@+id/day3image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/day4label"
+                android:gravity="center"/>
+
+            <ImageView
+                style="@style/FullWidgetIcon"
+                android:id="@+id/day4image"
+                android:src="@mipmap/w02"
+                android:layout_below="@+id/day4label"/>
+            <TextView
+                style="@style/FullWidgetTemp"
+                android:text="--°/--°"
+                android:id="@+id/day4temp"
+                android:textAlignment="gravity"
+                android:layout_below="@+id/day4image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/day5label"
+                android:gravity="center"/>
+
+            <ImageView
+                style="@style/FullWidgetIcon"
+                android:id="@+id/day5image"
+                android:src="@mipmap/w02"
+                android:layout_below="@+id/day5label"/>
+            <TextView
+                style="@style/FullWidgetTemp"
+                android:text="--°/--°"
+                android:id="@+id/day5temp"
+                android:textAlignment="gravity"
+                android:layout_below="@+id/day5image" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

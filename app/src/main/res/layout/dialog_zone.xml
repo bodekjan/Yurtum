@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:id="@+id/llToast" >
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/llToastContent"
+        android:layout_marginLeft="1dip"
+        android:layout_marginRight="1dip"
+        android:layout_marginBottom="1dip"
+        android:layout_width="300dp"
+        android:padding="10dp"
+        android:background="@drawable/dialog_bg" >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:clickable="true"
+            android:id="@+id/dialog_urumqi_btn"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <com.mikepenz.iconics.view.IconicsImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/dialog_urumqi_img"
+                android:layout_marginRight="10dp" />
+            <np.TextView
+                style="@style/DialogRadio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/default_zone6"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|left"
+            android:clickable="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/dialog_beijing_btn"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <com.mikepenz.iconics.view.IconicsImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/dialog_beijing_img"
+                android:layout_marginRight="10dp" />
+            <np.TextView
+                style="@style/DialogRadio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/default_zone8" />
+
+        </LinearLayout>
+        <np.Button
+            style="@style/SubmitButtonStyle"
+            android:text="@string/button_submit"
+            android:id="@+id/dialog_zone_submit"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        @font-face {
+            font-family: 'ALKATIP';
+            src:local("ALKATIP"),
+            url("fonts/ALKATIP.TTF") format("TrueType");
+            font-weight: normal;
+            font-style: normal;
+        }
+        #contentuy{
+            direction:rtl;
+            font-family:ALKATIP;
+            font-size:13px;
+            color:#222;
+            text-align:justify;
+        }
+        #contentzh{
+            direction:ltr;
+            font-size:13px;
+            color:#222;
+            text-align:justify;
+        }
+        .hide{
+            display: none;
+        }
+        #contentuy img{
+            display: block !important;
+            width: 100% !important;
+            height: 260px !important;
+        }
+        #contentzh img{
+            display: block !important;
+            width: 100% !important;
+            height: 260px !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="contentzh" class="container-fluid">
+        <br/>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/active.gif">
+                <div class="caption">
+                    <p style="text-align:center;">激活应用</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/share.gif">
+                <div class="caption">
+                    <p style="text-align:center;">分享天气</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/add.gif">
+                <div class="caption">
+                    <p style="text-align:center;">添加城市</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/edit.gif">
+                <div class="caption">
+                    <p style="text-align:center;">编辑天气</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/status.jpg">
+                <div class="caption">
+                    <p style="text-align:center;">状态栏开关</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/widget.gif">
+                <div class="caption">
+                    <p style="text-align:center;">桌面插件</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contentuy" class="container-fluid">
+        <br/>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/active.gif">
+                <div class="caption">
+                    <p style="text-align:center;">ئەپنى ئاكتىپلاش</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/share.gif">
+                <div class="caption">
+                    <p style="text-align:center;">ھاۋارايىنى ھەمبەھىرلەش</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/add.gif">
+                <div class="caption">
+                    <p style="text-align:center;">يېڭى شەھەر قۇشۇش</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/edit.gif">
+                <div class="caption">
+                    <p style="text-align:center;">شەھەر تەھرىرلەش</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/status.jpg">
+                <div class="caption">
+                    <p style="text-align:center;">ھالەت سىتونى</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="thumbnail">
+                <img src="images/widget.gif">
+                <div class="caption">
+                    <p style="text-align:center;">باشبەت تەگلىكى</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var lang=myObj.funGetLang();
+        if(lang==0){
+            document.getElementById("contentzh").className="hide";
+        }else{
+            document.getElementById("contentuy").className="hide";
+        }
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="dist/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
+</body>
+</html>

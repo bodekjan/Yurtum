@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.bodekjan.uyweather.activities.AddCityActivity"
+    android:background="#f0f0f0">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_blue_light"
+        android:layout_height="49dp">
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:visibility="invisible"
+            android:id="@+id/backarrow"
+            style="@style/HeaderAdd"
+            app:iiv_color="@color/iconcolor"
+            app:iiv_icon="gmi-arrow-left" />
+        <np.TextView
+            style="@style/HeaderTitle"
+            android:textColor="@color/textcolor"
+            android:text="@string/compass_title"
+            android:id="@+id/citytitle"
+            android:gravity="center" />
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/citymenu"
+            style="@style/HeaderAdd"
+            app:iiv_color="@color/iconcolor"
+            app:iiv_icon="gmi-menu" />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/arrow"
+            android:layout_marginTop="20dp" />
+        <np.TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 °"
+            android:id="@+id/degre"
+            android:textSize="28dp"
+            android:textColor="#c7c7c7"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#7e7e7e"
+            android:shadowRadius="1"
+            android:shadowDx="0"
+            android:shadowDy="-2"  />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/main_image_dial"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/compas" />
+            <ImageView
+                android:id="@+id/main_image_hands"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/hand" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/compass_info"
+            android:textColor="#c7c7c7"
+            android:id="@+id/textView3"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+</LinearLayout>

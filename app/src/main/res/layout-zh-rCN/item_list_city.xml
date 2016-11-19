@@ -1,0 +1,35 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:gravity="center_vertical|right">
+    <com.mikepenz.iconics.view.IconicsImageView
+        android:visibility="invisible"
+        android:id="@+id/cityhomeicon"
+        app:iiv_color="@android:color/holo_blue_dark"
+        app:iiv_icon="gmi-home"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignTop="@+id/listcity_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="right|center_vertical" />
+    <np.TextView
+        style="@style/ALKATIP"
+        android:id="@+id/listcity_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="name"
+        android:textColor="@color/textdark"
+        android:textSize="18sp"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:layout_gravity="left|center_vertical" />
+
+
+
+</FrameLayout>

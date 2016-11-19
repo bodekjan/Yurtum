@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ncity"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="--"
+        android:includeFontPadding="false"
+        android:id="@+id/nmaxmin"
+        android:textColor="@color/textdark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <ImageView
+        android:layout_width="44dp"
+        android:layout_height="match_parent"
+        android:id="@+id/nweather"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:id="@+id/ncurrent"
+        android:textSize="16dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/textdark"
+        android:layout_below="@+id/ncity"
+        android:layout_toRightOf="@+id/nweather"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ncurtext"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/nweather"
+        android:layout_toEndOf="@+id/nweather" />
+</RelativeLayout>

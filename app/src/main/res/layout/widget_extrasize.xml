@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/extra_widgetcontainer"
+        android:background="@drawable/bg_widget"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--:--"
+                android:id="@+id/extratime"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:includeFontPadding="false"
+                android:textSize="64dp"
+                android:textColor="@color/textcolor"
+                android:gravity="top" />
+
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/extra_widgeticon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@mipmap/w13" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:id="@+id/extramaxmin"
+                android:layout_below="@+id/extra_widgeticon"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="13dp"
+                android:textColor="@color/textcolor" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:id="@+id/extratemp"
+                android:layout_marginLeft="6dp"
+                android:layout_below="@+id/extra_widgeticon"
+                android:layout_toRightOf="@+id/extramaxmin"
+                android:layout_toEndOf="@+id/extramaxmin"
+                android:textSize="13dp"
+                android:textColor="@color/textcolor" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:id="@+id/extrastatus"
+                android:layout_below="@+id/extramaxmin"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/extra_widgetcity"
+                android:layout_alignTop="@+id/extratemp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="6dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:background="@drawable/bg_widgetborder"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="2dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/extraday3image"
+                    android:src="@mipmap/w01"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/extraday3label"
+                    android:textColor="@color/textcolor"
+                    android:textSize="14dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/extraday3image"
+                    android:layout_toStartOf="@+id/extraday3image" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--°/--°"
+                    android:id="@+id/extraday3temp"
+                    android:textColor="@color/textcolor"
+                    android:textSize="12dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/extraday3image"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_vertical|right" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/extraday4image"
+                    android:src="@mipmap/w01"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/extraday4label"
+                    android:textColor="@color/textcolor"
+                    android:textSize="14dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/extraday4image"
+                    android:layout_toStartOf="@+id/extraday4image" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--°/--°"
+                    android:id="@+id/extraday4temp"
+                    android:textColor="@color/textcolor"
+                    android:textSize="12dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/extraday4image"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_vertical|right" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/extraday5image"
+                    android:src="@mipmap/w01"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/extraday5label"
+                    android:textColor="@color/textcolor"
+                    android:textSize="14dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/extraday5image"
+                    android:layout_toStartOf="@+id/extraday5image" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--°/--°"
+                    android:id="@+id/extraday5temp"
+                    android:textColor="@color/textcolor"
+                    android:textSize="12dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/extraday5image"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_vertical|right" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

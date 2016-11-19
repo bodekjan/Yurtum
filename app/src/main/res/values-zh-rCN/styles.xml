@@ -1,0 +1,309 @@
+<resources>
+    <!-- 通用样式 -->
+    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="android:windowBackground">@mipmap/appbg</item>
+    </style>
+    <style name="ALKATIP">
+        <item name="typeface">ALKATIP.TTF</item>
+    </style>
+    <!-- 主页样式 -->
+    <style name="WeatherTitle"> // 页面标题样式
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:color">@color/textcolor</item>
+    </style>
+    <style name="HeaderTitle">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:color">@color/textcolor</item>
+    </style>
+    <style name="HeaderMenu">
+        <item name="android:layout_width">39dp</item>
+        <item name="android:layout_height">39dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="HeaderAdd">
+        <item name="android:layout_width">39dp</item>
+        <item name="android:layout_height">39dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="BigNumber">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textcolor</item>
+        <item name="android:textSize">72dp</item>
+    </style>
+    <style name="BigWeather">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_marginRight">6dp</item>
+        <item name="android:textColor">@color/textcolor</item>
+    </style>
+    <style name="BigDetail">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textColor">@color/textcolor</item>
+    </style>
+    <style name="TimePast">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textColor">@color/textgrey</item>
+    </style>
+    <style name="ThreeStatus">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textcolor</item>
+    </style>
+    <style name="ThreeStatusTmp">
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textcolor</item>
+    </style>
+    <style name="ThreeStatusIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+    <style name="DayList">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#33000000</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+    <style name="DayListExtra">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#33000000</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+    <style name="DayListLabel">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textColor">@color/textcolor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:paddingLeft">4dp</item>
+    </style>
+    <style name="DayListSmallLabel">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textColor">@color/textcolor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical|center</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+    </style>
+    <style name="DayListIcon">
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+    <style name="OneDay">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">#33000000</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">12dp</item>
+    </style>
+    <style name="TodayText">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textSize">11dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:textColor">@color/textcolor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_todaytextzh</item>
+    </style>
+    <style name="TodayIcon">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:background">@drawable/bg_todayiconzh</item>
+    </style>
+    <style name="PanelTitle">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textColor">@color/textcolor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <!-- add city styles -->
+    <style name="SearchEdit">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:background">@drawable/bg_inputblank</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:textColor">@color/textdark</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:hint">@string/default_search</item>
+    </style>
+    <style name="AddCityRow">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">@drawable/bg_singleborder</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="CityListContainer">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_margin">6dp</item>
+    </style>
+    <style name="CityListLabel">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textdark</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+    <style name="CityListGrid">
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:horizontalSpacing">4dp</item>
+        <item name="android:numColumns">3</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:verticalSpacing">4dp</item>
+    </style>
+    <!-- citylist styles -->
+    <!-- setting styles -->
+    <style name="SettingButtonStyle">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_setting_item</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:clickable">true</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+    <style name="SubmitButtonStyle">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/bg_submit_btn</item>
+        <item name="android:textColor">@color/textcolor</item>
+    </style>
+    <style name="SettingItemStyle">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/settingitemcolor</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+    <style name="SettingValueStyle">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@android:color/holo_blue_dark</item>
+        <item name="android:gravity">right</item>
+        <item name="android:layout_marginLeft">8dp</item>
+    </style>
+    <style name="SettingIconStyle">
+        <item name="android:layout_height">22dp</item>
+        <item name="android:layout_width">22dp</item>
+    </style>
+    <style name="SettingHaveNew">
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginLeft">6dp</item>
+    </style>
+    <!-- widget styles -->
+    <style name="FullWidgetIcon">
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <style name="FullWidgetTemp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+    <!-- dialog styles -->
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="DialogRadio">
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">13dp</item>
+        <item name="typeface">ALKATIP.TTF</item>
+        <item name="android:textColor">@color/textdark</item>
+    </style>
+</resources>
