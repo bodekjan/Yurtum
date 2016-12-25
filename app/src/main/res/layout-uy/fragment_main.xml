@@ -30,7 +30,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="2dp">
                         <TextView
                             style="@style/BigNumber"
                             android:text="@string/default_curtemp"
@@ -110,7 +110,7 @@
                             style="@style/DayList"
                             android:id="@+id/daytwo">
                             <TextView
-                                android:layout_width="60dp"
+                                android:layout_width="70dp"
                                 android:layout_height="match_parent"
                                 android:textColor="@color/textcolor"
                                 android:text="@string/default_maxmin"
@@ -130,7 +130,7 @@
                             style="@style/DayList"
                             android:id="@+id/daythree">
                             <TextView
-                                android:layout_width="60dp"
+                                android:layout_width="70dp"
                                 android:layout_height="match_parent"
                                 android:textColor="@color/textcolor"
                                 android:text="@string/default_maxmin"
@@ -151,7 +151,7 @@
                             android:id="@+id/dayfour">
 
                             <TextView
-                                android:layout_width="60dp"
+                                android:layout_width="70dp"
                                 android:layout_height="match_parent"
                                 android:textColor="@color/textcolor"
                                 android:text="@string/default_maxmin"
@@ -173,7 +173,7 @@
                             android:id="@+id/dayfive">
 
                             <TextView
-                                android:layout_width="60dp"
+                                android:layout_width="70dp"
                                 android:layout_height="match_parent"
                                 android:textColor="@color/textcolor"
                                 android:text="@string/default_maxmin"
@@ -195,7 +195,7 @@
                             android:id="@+id/daysix">
 
                             <TextView
-                                android:layout_width="60dp"
+                                android:layout_width="70dp"
                                 android:layout_height="match_parent"
                                 android:textColor="@color/textcolor"
                                 android:text="@string/default_maxmin"
@@ -216,7 +216,7 @@
                             android:id="@+id/dayseven">
 
                             <TextView
-                                android:layout_width="60dp"
+                                android:layout_width="70dp"
                                 android:layout_height="match_parent"
                                 android:textColor="@color/textcolor"
                                 android:text="@string/default_maxmin"
@@ -237,7 +237,7 @@
                             style="@style/DayList"
                             android:id="@+id/dayeight">
                             <TextView
-                                android:layout_width="60dp"
+                                android:layout_width="70dp"
                                 android:layout_height="match_parent"
                                 android:textColor="@color/textcolor"
                                 android:text="@string/default_maxmin"

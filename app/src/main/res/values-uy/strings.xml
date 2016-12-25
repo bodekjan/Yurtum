@@ -18,6 +18,9 @@
     <string name="snack_haswechat">ئاكتىپلانمىدى، ئۈندىدار يوق ئىكەن</string>
     <string name="snack_swip">شەھەرنى تەھرىرلەش ئۈچۈن ئوڭغا تارتىڭ </string>
     <string name="snack_weather">كۆرىۋاتقىنىڭىز ئەڭ يېڭى ئۇچۇركەن</string>
+    <string name="snack_sharesuccess">مۇۋاپىقىيەتلىك بولدى</string>
+    <string name="snack_shareerror">ھەمبەھىرلەش مەغلۇپ بولدى</string>
+    <string name="snack_sharecancel">ھەمبەھىرلەش ئەمەلدىن قالدۇرۇلدى</string>
     <!-- default value -->
     <string name="default_title">--</string>
     <string name="default_curtemp">--°</string>
@@ -34,6 +37,9 @@
     <string name="default_zone6">ئۈرۈمچى ۋاقتى</string>
     <string name="default_zone8">بېيجىڭ ۋاقتى</string>
     <string name="default_wechat">يۇرتۇم ھاۋارايى ئەپ دېتالى</string>
+    <string name="default_friend">دوستلارغا</string>
+    <string name="default_circle">ھەمبىرەككە</string>
+    <string name="share_info">ھاۋارايىنى ئۈندىدارغا ھەمبەھىرلىگىلى بولىدۇ</string>
     <!-- 错误城市 -->
     <string name="err_aksu">ئاقسۇ</string>
     <string name="err_aksuzh">阿克苏</string>
@@ -50,7 +56,7 @@
     <string name="translate_title">تەرجىمان</string>
     <string name="compass_title">كومپاس</string>
     <string name="comment_title">تەكلىپ - پىكىر</string>
-    <string name="adv_title">مىنى قوللاش</string>
+    <string name="adv_title">تەگلىك رەسىمى</string>
     <string name="weather_mtitle">ھاۋارايى</string>
     <string name="weather_sevenday">كەلگۈسى يەتتە كۈنلۈك مەلۇمات</string>
     <string name="weather_threeday">كەلگۈسى ئۈچ كۈنلۈك مەلۇمات</string>
@@ -63,6 +69,7 @@
     <string name="title_oneday">24 سائەتلىك ھاۋارايى</string>
     <string name="title_advice">تۇرمۇش كۆرسەتكۈچى</string>
     <string name="title_news">بۈگۈنكى خەۋەرلەر</string>
+    <string name="title_share">ھاۋارايىنى ھەمبەھىرلەش</string>
     <string name="air_info">سالامەتلىكىڭىزنى ئاسراڭ</string>
     <!-- static texts -->
     <string name="location_label">ھازىرقى ئورنىڭىز</string>
@@ -90,11 +97,13 @@
     <string name="button_backmain">باش بەتكە قايتىش</string>
     <string name="setting_lang">ئەپ تىلىنى ئۆزگەرتىش</string>
     <string name="setting_status">ھالەت سىتونى ھاۋارايى</string>
-    <string name="setting_ad">مىنى قوللاش</string>
+    <string name="setting_bgapp">ئەپ تەمىنلىگەن تەگلىك</string>
+    <string name="setting_bglocal">يانفۇندىكى رەسىمنى ئىشلىتىمەن</string>
+    <string name="setting_bgchoice">تاللاش</string>
     <string name="setting_zone">كۈن چىقىش ئولتۇرۇش</string>
     <string name="setting_inst">ئىشلىتىش قوللانمىسى</string>
     <string name="setting_comment">تەكلىپ - پىكىر</string>
-    <string name="setting_coop">مىنى قوللاش</string>
+    <string name="setting_coop">تەگلىك رەسىمى</string>
     <string name="setting_ver">ئەپ نەشىرى</string>
     <string name="setting_newver">يېڭى نەشىرى چىقتى</string>
     <string name="setting_about">ئەپ تۈزگۈچىدىن</string>
@@ -118,8 +127,9 @@
     <string name="value_uyghur">ئۇيغۇرچە</string>
     <string name="value_chinese">中文</string>
     <!-- variable values -->
+    <string name="value_justnow">بايىلا ئېلان قىلىنغان مەلۇمات</string>
     <string name="value_pastminute">%1$s مىنۇت ئىلگىركى مەلۇمات</string>
-    <string name="value_pasthour">%1$s سائەت ئىلگىركى مەلۇمات</string>
+    <string name="value_pasthour">%1$s سائەت ئىلگىركى مەلۇمات ، تۆۋەنگە سىيرىپ يېڭىلىۋېلىڭ</string>
     <string name="value_windspeed">%1$s بال شامال</string>
     <string name="value_hump">%1$s نەملىك</string>
     <string name="value_wplease">%1$sنىڭ ھازىرقى تېمپېراتۇرىسى %2$s گىرادۇس %3$s</string>

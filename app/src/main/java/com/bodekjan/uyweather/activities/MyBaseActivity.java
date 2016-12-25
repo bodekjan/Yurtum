@@ -151,8 +151,19 @@ public class MyBaseActivity extends AppCompatActivity implements View.OnClickLis
             config.locale = Locale.SIMPLIFIED_CHINESE;
             lang=1;
         } else if (language == -1) {
-            Intent intent = new Intent(this, SettingActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this, SettingActivity.class);
+//            startActivity(intent);
+            SharedPreferences.Editor editor=this.getSharedPreferences("settings",Context.MODE_PRIVATE).edit();
+            /* 默认设置成维语 */
+//            editor.putInt("lang",0);
+//            editor.commit();
+//            config.locale = new Locale("uy");
+//            lang=0;
+            /* 默认设置成中文 */
+            editor.putInt("lang",1);
+            editor.commit();
+            config.locale = Locale.SIMPLIFIED_CHINESE;
+            lang=1;
         }
         resources.updateConfiguration(config, dm);
     }

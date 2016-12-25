@@ -195,13 +195,13 @@ public class SettingFragment extends Fragment {
         moneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ((SettingActivity)getActivity()).setFragment(SettingActivity.AD);
-                Intent i=new Intent(getActivity(),WebActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putSerializable("url","file:///android_asset/money.html");
-                bundle.putSerializable("title",getResources().getText(R.string.title_money).toString());
-                i.putExtras(bundle);
-                getActivity().startActivity(i);
+                ((SettingActivity)getActivity()).setFragment(SettingActivity.AD);
+//                Intent i=new Intent(getActivity(),WebActivity.class);
+//                Bundle bundle=new Bundle();
+//                bundle.putSerializable("url","file:///android_asset/money.html");
+//                bundle.putSerializable("title",getResources().getText(R.string.title_money).toString());
+//                i.putExtras(bundle);
+//                getActivity().startActivity(i);
             }
         });
         aboutButton = (LinearLayout) view.findViewById(R.id.aboutbutton);

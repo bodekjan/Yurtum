@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.blankj.utilcode.utils.StringUtils;
 import com.bodekjan.uyweather.util.CommonHelper;
 import com.bodekjan.uyweather.util.MyDatabaseHelper;
+import com.github.promeg.pinyinhelper.Pinyin;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -176,6 +178,7 @@ public class PlaceLib {
         @Override
         public void run() {
             try {
+
                 newCity=CommonHelper.checkNewCity(newCity,CommonHelper.checkCity,false);
                 if(!newCity.checkService){
                 }
@@ -197,23 +200,32 @@ public class PlaceLib {
                     String httpArg = "cityid="+newCity.cityId;
                     httpUrl = CommonHelper.quickCity + "?" + httpArg;
                 }
-                String result=CommonHelper.getNetQuickByKey(httpUrl);
-                if(result.equals("err")){
-                    Intent intent = new Intent();
-                    intent.setAction(NETERROR);
-                    mContext.sendBroadcast(intent);
-                    return;
-                }
-                JSONTokener jsonTokener = new JSONTokener(result);
-                JSONObject jsonObject=(JSONObject)jsonTokener.nextValue();
-                String errNum=jsonObject.getString("errNum");
-                if(!errNum.equals("0")){
-                    Intent intent = new Intent();
-                    intent.setAction(NETERROR);
-                    mContext.sendBroadcast(intent);
-                    return;
-                }
-                JSONObject oneCity=jsonObject.getJSONObject("retData");
+                Log.e("AAAA","===================================第一种查询开始了");
+                //String result=CommonHelper.getNetQuickByKey(httpUrl);
+//                if(result.equals("err")){
+//                    Intent intent = new Intent();
+//                    intent.setAction(NETERROR);
+//                    mContext.sendBroadcast(intent);
+//                    return;
+//                }
+//                JSONTokener jsonTokener = new JSONTokener(result);
+                //JSONObject jsonObject=(JSONObject)jsonTokener.nextValue();
+                //String errNum=jsonObject.getString("errNum");
+//                if(!errNum.equals("0")){
+//                    Intent intent = new Intent();
+//                    intent.setAction(NETERROR);
+//                    mContext.sendBroadcast(intent);
+//                    return;
+//                }
+//                JSONObject oneCity=jsonObject.getJSONObject("retData");
+//                newCity.curTmp=oneCity.getString("temp");
+//                newCity.minTmp=oneCity.getString("l_tmp");
+//                newCity.maxTmp=oneCity.getString("h_tmp");
+//                newCity.curStatus=oneCity.getString("weather");
+//                newCity.quickDate="20"+oneCity.getString("date");
+//                newCity.quickTime=oneCity.getString("time");
+                /* 被百度坑了，我能修好 */
+                Log.e("AAAA","===================================第一种查询结束了");
                 if(mPlaceList.size()==0){
                     newCity.status=1;
                 }else {
@@ -222,17 +234,20 @@ public class PlaceLib {
                 if(newCity.uyCity==null){
                     newCity.uyCity=CommonHelper.translate(newCity.city);
                 }
-                newCity.curTmp=oneCity.getString("temp");
-                newCity.minTmp=oneCity.getString("l_tmp");
-                newCity.maxTmp=oneCity.getString("h_tmp");
-                newCity.curStatus=oneCity.getString("weather");
-                newCity.quickDate="20"+oneCity.getString("date");
-                newCity.quickTime=oneCity.getString("time");
-                /* 被百度坑了，我能修好 */
                 /* 用新API试试看 */
                 newCity=CommonHelper.getRealFromWeather(newCity);
                 if(newCity.cityPinyin.equals("---")){
-                    newCity.cityPinyin=oneCity.getString("pinyin");
+                    //newCity.cityPinyin=oneCity.getString("pinyin");
+                    char chs[]=newCity.city.toCharArray();
+                    newCity.cityPinyin="";
+                    for(int i=0;i<chs.length;i++){
+                        if(chs[i]=='什'){
+                            newCity.cityPinyin+="shi";
+                        }else {
+                            newCity.cityPinyin+= Pinyin.toPinyin(chs[i]);
+                        }
+                    }
+                    newCity.cityPinyin=newCity.cityPinyin.toLowerCase();
                 }
                 SQLiteDatabase db=dbHelper.getWritableDatabase();
                 /* 检查重复 */
@@ -331,32 +346,32 @@ public class PlaceLib {
         @Override
         public void run() {
             try {
-                String httpArg = "cityname="+URLEncoder.encode(newCity.city, "utf-8");
-                String httpUrl = CommonHelper.quickCity + "?" + httpArg;
-                String result=CommonHelper.getNetQuickByKey(httpUrl);
-                if(result.equals("err")){
-                    Intent intent = new Intent();
-                    intent.setAction(NETERROR);
-                    mContext.sendBroadcast(intent);
-                    return;
-                }
-                JSONTokener jsonTokener = new JSONTokener(result);
-                JSONObject jsonObject=(JSONObject)jsonTokener.nextValue();
-                String errNum=jsonObject.getString("errNum");
-                if(!errNum.equals("0")){
-                    Intent intent = new Intent();
-                    intent.setAction(NETERROR);
-                    mContext.sendBroadcast(intent);
-                    return;
-                }
-                JSONObject oneCity=jsonObject.getJSONObject("retData");
-                newCity.cityId=oneCity.getString("citycode");
-                newCity.curTmp=oneCity.getString("temp");
-                newCity.minTmp=oneCity.getString("l_tmp");
-                newCity.maxTmp=oneCity.getString("h_tmp");
-                newCity.curStatus=oneCity.getString("weather");
-                newCity.quickDate="20"+oneCity.getString("date");
-                newCity.quickTime=oneCity.getString("time");
+                //String httpArg = "cityname="+URLEncoder.encode(newCity.city, "utf-8");
+                //String httpUrl = CommonHelper.quickCity + "?" + httpArg;
+                //String result=CommonHelper.getNetQuickByKey(httpUrl);
+//                if(result.equals("err")){
+//                    Intent intent = new Intent();
+//                    intent.setAction(NETERROR);
+//                    mContext.sendBroadcast(intent);
+//                    return;
+//                }
+//                JSONTokener jsonTokener = new JSONTokener(result);
+//                JSONObject jsonObject=(JSONObject)jsonTokener.nextValue();
+//                String errNum=jsonObject.getString("errNum");
+//                if(!errNum.equals("0")){
+//                    Intent intent = new Intent();
+//                    intent.setAction(NETERROR);
+//                    mContext.sendBroadcast(intent);
+//                    return;
+//                }
+//                JSONObject oneCity=jsonObject.getJSONObject("retData");
+//                newCity.cityId=oneCity.getString("citycode");
+//                newCity.curTmp=oneCity.getString("temp");
+//                newCity.minTmp=oneCity.getString("l_tmp");
+//                newCity.maxTmp=oneCity.getString("h_tmp");
+//                newCity.curStatus=oneCity.getString("weather");
+//                newCity.quickDate="20"+oneCity.getString("date");
+//                newCity.quickTime=oneCity.getString("time");
                 newCity.pm25="--";
                 /* 查时间是不是有效的 */
                 String quick=newCity.quickDate+" "+newCity.quickTime+":00";

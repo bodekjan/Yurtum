@@ -15,32 +15,25 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
-import android.os.Handler;
-import android.os.Message;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.blankj.utilcode.utils.NetworkUtils;
 import com.blankj.utilcode.utils.SizeUtils;
 import com.bodekjan.uyweather.R;
 import com.bodekjan.uyweather.activities.MainActivity;
-import com.bodekjan.uyweather.activities.SettingActivity;
 import com.bodekjan.uyweather.model.OnePlace;
 import com.bodekjan.uyweather.model.PlaceLib;
 import com.bodekjan.uyweather.model.WeatherStatus;
-import com.bodekjan.uyweather.service.TimeService;
+import com.bodekjan.uyweather.service.LocalService;
+import com.bodekjan.uyweather.service.RemoteService;
 import com.bodekjan.uyweather.util.CommonHelper;
 import com.bodekjan.uyweather.util.WeatherTranslator;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by bodekjan on 2016/9/12.
@@ -88,8 +81,10 @@ public class ExtraSizeWidget extends AppWidgetProvider
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Intent intent = new Intent(context, TimeService.class);
+        Intent intent = new Intent(context, LocalService.class);
+        Intent intentR = new Intent(context, RemoteService.class);
         context.startService(intent);
+        context.startService(intentR);
         super.onEnabled(context);
     }
     @Override
@@ -101,8 +96,10 @@ public class ExtraSizeWidget extends AppWidgetProvider
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
-        Intent intent = new Intent(context, TimeService.class);
+        Intent intent = new Intent(context, LocalService.class);
+        Intent intentR = new Intent(context, RemoteService.class);
         context.stopService(intent);
+        context.stopService(intentR);
     }
     @Override
     public void onReceive(Context context, Intent intent)
@@ -136,10 +133,12 @@ public class ExtraSizeWidget extends AppWidgetProvider
         }
         String action = intent.getAction();
         if (action.equals("android.intent.action.USER_PRESENT")) {// 用户唤醒设备时启动服务
-            context.startService(new Intent(context, TimeService.class));
+            context.startService(new Intent(context, LocalService.class));
+            context.startService(new Intent(context, RemoteService.class));
             updateTime();
         } else if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-            context.startService(new Intent(context, TimeService.class));
+            context.startService(new Intent(context, LocalService.class));
+            context.startService(new Intent(context, RemoteService.class));
             updateTime();
         }
         super.onReceive(context, intent);

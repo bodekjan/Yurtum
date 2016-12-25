@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bodekjan.uyweather">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- normal -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- normal -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> <!-- normal -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/> <!-- xxx -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!-- xxx -->
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" /> <!-- normal -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- xxx -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -21,7 +31,7 @@
             android:value="580c9edac895764480000c1c"/>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Otkax"/>
+            android:value="WANDOUJIA"/>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,9 +44,17 @@
         <activity android:name=".activities.SettingActivity"></activity>
         <activity android:name=".activities.TranslateActivity" />
         <activity android:name=".activities.CompassActivity" />
-        <activity android:name=".wxapi.WXEntryActivity" android:exported="true"></activity>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <service android:name=".service.WeatherService"></service>
-
+        <activity
+            android:theme="@style/MyTheme"
+            android:configChanges="orientation|screenSize"
+            android:name=".widget.ImageSelectorActivity" />
         <receiver
             android:name=".widget.FullSizeWidget"
             android:label="5x1 YURTUM">
@@ -64,10 +82,8 @@
                 android:resource="@xml/xml_extrawidget" />
         </receiver>
         <receiver android:name=".receiver.ServiceReceiver"/>
-        <service android:name=".service.TimeService" android:process=":process1"></service>
-        <service android:name=".service.TimeServiceGuard" android:process=":process2"></service>
-        <receiver android:name=".receiver.TimeReceiver" android:process=":process1"/>
-        <receiver android:name=".receiver.TimeReceiverGuard" android:process=":process2"/>
+        <service android:name=".service.LocalService"></service>
+        <service android:name=".service.RemoteService" android:process=".remoteservice"></service>
     </application>
 
 </manifest>

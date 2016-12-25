@@ -48,7 +48,8 @@ public class MyCrashHandler implements Thread.UncaughtExceptionHandler {
 
         //提示用户程序即将退出
         //showToast(mContext, "程序意外终止，这个提示框截屏给我看吧，如下是错误信息："+ex.getCause());
-        showToast(mContext, ex.getMessage());
+        //showToast(mContext,ex.getMessage());
+        showToast(mContext,"app bolikidin masila koruldi, apni kayta kaqilap korung");
         Log.e("出错了",ex.getMessage());
         ex.printStackTrace();
         try {

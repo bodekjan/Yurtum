@@ -46,6 +46,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/textcolor</item>
         <item name="android:textSize">72dp</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="BigWeather">
         <item name="android:layout_width">64dp</item>
@@ -61,6 +65,10 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textColor">@color/textcolor</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="TimePast">
         <item name="typeface">ALKATIP.TTF</item>
@@ -69,6 +77,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">8dp</item>
         <item name="android:textColor">@color/textgrey</item>
+        <item name="android:shadowColor">#ff999999</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="ThreeStatus">
         <item name="typeface">ALKATIP.TTF</item>
@@ -76,12 +88,20 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/textcolor</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="ThreeStatusTmp">
         <item name="android:textSize">12dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/textcolor</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="ThreeStatusIcon">
         <item name="android:layout_width">24dp</item>
@@ -112,6 +132,10 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center_vertical|right</item>
         <item name="android:paddingRight">4dp</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="DayListSmallLabel">
         <item name="typeface">ALKATIP.TTF</item>
@@ -123,6 +147,10 @@
         <item name="android:textSize">12dp</item>
         <item name="android:paddingRight">4dp</item>
         <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="DayListIcon">
         <item name="android:layout_width">28dp</item>
@@ -153,6 +181,10 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/bg_todaytext</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
     </style>
     <style name="TodayIcon">
         <item name="android:layout_marginTop">4dp</item>
@@ -303,5 +335,11 @@
         <item name="android:textSize">13dp</item>
         <item name="typeface">ALKATIP.TTF</item>
         <item name="android:textColor">@color/textdark</item>
+    </style>
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
     </style>
 </resources>

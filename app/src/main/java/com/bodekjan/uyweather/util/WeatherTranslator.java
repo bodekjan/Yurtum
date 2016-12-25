@@ -172,6 +172,9 @@ public class WeatherTranslator {
             case "较不舒适":
                 flu="بۈگۈنكى ھاۋا ئادەمنى بىئارام قىلىدۇ";
                 break;
+            case "很不舒适":
+                flu="بۈگۈنكى ھاۋا ئادەمنى بەك بىئارام قىلىدۇ";
+                break;
             default:
                 flu="";
                 break;

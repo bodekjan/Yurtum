@@ -83,11 +83,11 @@ public class LocationFinder {
             }
             JSONTokener jsonTokener = new JSONTokener(result);
             JSONObject jsonObject=(JSONObject)jsonTokener.nextValue();
-            if(!jsonObject.getString("showapi_res_code").equals("0")){
+            if(!jsonObject.getString("errNum").equals("0")){
                 globalCity.zhName="err";
                 return globalCity;
             }
-            JSONObject cityBody=jsonObject.getJSONObject("showapi_res_body");
+            JSONObject cityBody=jsonObject.getJSONObject("retData");
             result=cityBody.getString("city");
             globalCity.zhName=result;
         } catch (Exception e) {

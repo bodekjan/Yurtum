@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -377,7 +378,7 @@ public class AddCityActivity extends MyBaseActivity {
             if(!NetworkUtils.isConnected(AddCityActivity.this)){
                 return "neterr";
             }
-            reCity=CommonHelper.searchCity(reCity.zhName);
+            reCity=CommonHelper.searchCity(reCity.zhName,0);
             return reCity.zhName;
         }
         //onProgressUpdate方法用于更新进度信息

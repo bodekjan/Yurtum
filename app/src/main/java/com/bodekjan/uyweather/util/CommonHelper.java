@@ -48,13 +48,14 @@ public class CommonHelper {
     public static final String BANNER = "ccad4aebbdb69ebf3135b24108f989ca";
     public static final String APP_ID = "100044832";
     public static final String SECRET_KEY = "8846d096ca947e5d6bfd642b37d71893";
-    public static final String appVersion="1.5";
+    public static final String appVersion="1.7";
     public static final int dbVersion=6;
     public static int serviceTime=30;
     public static int refreshTime=60;
     public static int detailTime=180;
     public static String checkIp="http://115.159.28.64:8080/project.weather/rest/getip";
-    public static String ipFindCity = "http://apis.baidu.com/showapi_open_bus/ip/ip";
+    //public static String ipFindCity = "http://apis.baidu.com/showapi_open_bus/ip/ip"; /* 出错率很高*/
+    public static String ipFindCity = "http://apis.baidu.com/apistore/iplookupservice/iplookup";
     public static String checkCity = "http://apis.baidu.com/apistore/weatherservice/cityinfo";
     public static String checkCitySecound = "http://apis.baidu.com/apistore/weatherservice/cityname";
     public static String quickCity = "http://apis.baidu.com/apistore/weatherservice/cityid";
@@ -66,6 +67,7 @@ public class CommonHelper {
     public static String translate="http://115.159.28.64:8080/project.languageall/rest/translata/";
     public static String quickNews = "http://www.hawar.cn/index.shtml";
     public static int NOTIFICATION=55;
+    public static String screenShotPic="/storage/emulated/0/yurtum/share4.jpg";
     /* 微信的 */
     public static String path="http://uyweather.azurewebsites.net/appmoment.html";
     public static ArrayList<AppCompatActivity> activities=new ArrayList<AppCompatActivity>();
@@ -171,33 +173,33 @@ public class CommonHelper {
         }
         return city;
     }
-    public static String getNetQuickByKey(String path){
-        BufferedReader reader = null;
-        String result = null;
-        StringBuffer sbf = new StringBuffer();
-        String httpUrl = path;
-        try {
-            URL url = new URL(httpUrl);
-            HttpURLConnection connection = (HttpURLConnection) url
-                    .openConnection();
-            connection.setRequestMethod("GET");
-            // 填入apikey到HTTP header
-            connection.setRequestProperty("apikey",  "742f1f61e7d1f794e64bd23959420c87");
-            connection.connect();
-            InputStream is = connection.getInputStream();
-            reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-            String strRead = null;
-            while ((strRead = reader.readLine()) != null) {
-                sbf.append(strRead);
-                sbf.append("\r\n");
-            }
-            reader.close();
-            result = sbf.toString();
-            return result;
-        } catch (Exception e) {
-            return "err";
-        }
-    }
+//    public static String getNetQuickByKey(String path){
+//        BufferedReader reader = null;
+//        String result = null;
+//        StringBuffer sbf = new StringBuffer();
+//        String httpUrl = path;
+//        try {
+//            URL url = new URL(httpUrl);
+//            HttpURLConnection connection = (HttpURLConnection) url
+//                    .openConnection();
+//            connection.setRequestMethod("GET");
+//            // 填入apikey到HTTP header
+//            connection.setRequestProperty("apikey",  "742f1f61e7d1f794e64bd23959420c87");
+//            connection.connect();
+//            InputStream is = connection.getInputStream();
+//            reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+//            String strRead = null;
+//            while ((strRead = reader.readLine()) != null) {
+//                sbf.append(strRead);
+//                sbf.append("\r\n");
+//            }
+//            reader.close();
+//            result = sbf.toString();
+//            return result;
+//        } catch (Exception e) {
+//            return "err";
+//        }
+//    }
     public static OnePlace getRealFromWeather(OnePlace city){
         BufferedReader readerSecound = null;
         String resultSecoundX = null;
@@ -514,7 +516,7 @@ public class CommonHelper {
 //        }
 //        return true;
 //    }
-    public static GlobalCity searchCity(String cityZh){
+    public static GlobalCity searchCity(String cityZh,int times){
         cityZh=cityCleaner(cityZh);
         GlobalCity reCity=new GlobalCity();
         reCity.zhName=cityZh;
@@ -544,8 +546,13 @@ public class CommonHelper {
             JSONObject jsonObject=(JSONObject)jsonTokener.nextValue();
             String errNum=jsonObject.getString("errNum");
             if(!errNum.equals("0")){
-                reCity.zhName="--";
-                return reCity;
+                if(times<3){
+                    reCity=searchCity(cityZh,++times);
+                    return reCity;
+                }else {
+                    reCity.zhName="--";
+                    return reCity;
+                }
             }
             JSONObject oneCity=jsonObject.getJSONObject("retData");
             reCity.zhName=oneCity.getString("city");
@@ -600,6 +607,69 @@ public class CommonHelper {
                 JSONObject jsonObject = (JSONObject)jsonTokener.nextValue();
                 String uyCity = jsonObject.getString("tgt_text");
                 uyCity=uyCity.replace("<br>", "");
+                uyCity=uyCity.replace("، ", "");
+                if(uyCity.indexOf("|")!=-1){
+                    zh=translateTilmach(zh);
+                    return zh;
+                }else if(uyCity.indexOf("<")!=-1){
+                    zh=translateTilmach(zh);
+                    return zh;
+                }else if(uyCity.indexOf("ERROR")!=-1){
+                    zh=translateTilmach(zh);
+                    return zh;
+                }else if(uyCity.indexOf("error")!=-1){
+                    zh=translateTilmach(zh);
+                    return zh;
+                }
+                return uyCity;
+            }
+            return zh;
+        } catch (Exception e) {
+            zh=translateTilmach(zh);
+            return zh;
+        } finally {
+            if (http != null) http.disconnect();
+        }
+    }
+    public static String translateTilmach(String zh){
+        /* 新的程序 */
+        URL url = null;
+        HttpURLConnection http = null;
+        StringBuffer sbfThird = new StringBuffer();
+        try {
+            url = new URL("http://www.tilmach.cn/Home/DoTranslate");
+            http = (HttpURLConnection) url.openConnection();
+            http.setDoInput(true);
+            http.setDoOutput(true);
+            http.setUseCaches(false);
+            http.setConnectTimeout(50000);//设置连接超时
+            //如果在建立连接之前超时期满，则会引发一个 java.net.SocketTimeoutException。超时时间为零表示无穷大超时。
+            http.setReadTimeout(50000);//设置读取超时
+            //如果在数据可读取之前超时期满，则会引发一个 java.net.SocketTimeoutException。超时时间为零表示无穷大超时。
+            http.setRequestMethod("POST");
+            // http.setRequestProperty("Content-Type","text/xml; charset=UTF-8");
+            http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            http.connect();
+            String param ="&sourceLang=" + "zh-CN"
+                    + "&source=" + URLEncoder.encode(zh, "utf-8")
+                    + "&targetLang=" + "ug-CN";
+            OutputStreamWriter osw = new OutputStreamWriter(http.getOutputStream(), "utf-8");
+            osw.write(param);
+            osw.flush();
+            osw.close();
+            if (http.getResponseCode() == 200) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(http.getInputStream(), "utf-8"));
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    sbfThird.append(inputLine);
+                }
+                in.close();
+                JSONTokener jsonTokener = new JSONTokener(sbfThird.toString());
+                JSONObject jsonObject = (JSONObject)jsonTokener.nextValue();
+                String uyCity = jsonObject.getString("data");
+                uyCity=uyCity.replace("<br>", "");
+                uyCity=uyCity.replace("\n", "");
+                uyCity=uyCity.replace("، ", "");
                 if(uyCity.indexOf("|")!=-1){
                     return zh;
                 }else if(uyCity.indexOf("<")!=-1){

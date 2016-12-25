@@ -3,13 +3,18 @@ package com.bodekjan.uyweather.activities;
 import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
@@ -22,8 +27,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.LayoutInflaterCompat;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,18 +38,18 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
+import com.blankj.utilcode.utils.ConvertUtils;
 import com.blankj.utilcode.utils.ImageUtils;
 import com.blankj.utilcode.utils.NetworkUtils;
 import com.bodekjan.uyweather.R;
+import com.bodekjan.uyweather.dialog.ShareDialog;
 import com.bodekjan.uyweather.fragments.CityFragment;
 import com.bodekjan.uyweather.model.GlobalCity;
-import com.bodekjan.uyweather.model.OneDay;
-import com.bodekjan.uyweather.model.OnePlace;
 import com.bodekjan.uyweather.model.PlaceLib;
-import com.bodekjan.uyweather.model.WeatherStatus;
-import com.bodekjan.uyweather.service.TimeService;
+import com.bodekjan.uyweather.service.LocalService;
 import com.bodekjan.uyweather.service.WeatherService;
 import com.bodekjan.uyweather.util.CommonHelper;
 import com.bodekjan.uyweather.util.LocationFinder;
@@ -54,16 +60,15 @@ import com.mikepenz.iconics.context.IconicsLayoutInflater;
 import com.mikepenz.iconics.view.IconicsImageView;
 import com.mikepenz.iconics.view.IconicsTextView;
 import com.special.ResideMenu.ResideMenu;
-import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
-import com.tencent.mm.sdk.modelmsg.WXImageObject;
-import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-import com.tencent.mm.sdk.modelmsg.WXTextObject;
-import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
-import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 import com.wandoujia.ads.sdk.Ads;
-
+import java.io.File;
+import java.io.FileOutputStream;
+import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -85,6 +90,8 @@ public class MainActivity extends MyBaseActivity implements Runnable{
     FrameLayout weatherBg;
     View bannerView;
     FrameLayout bannerArea;
+    public boolean isBannerReady=false;
+    Drawable backDrawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LayoutInflaterCompat.setFactory(getLayoutInflater(), new IconicsLayoutInflater(getDelegate())); /*为了加速启动*/
@@ -107,6 +114,19 @@ public class MainActivity extends MyBaseActivity implements Runnable{
         thread.start();
         /* 统计 */
         MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
+        /* 准备图片 */
+        SharedPreferences pref=getSharedPreferences("settings", Context.MODE_PRIVATE);
+        String wallPic=pref.getString("wallpaperPic","--");
+        int wall=pref.getInt("wallpaper",-1);
+        if(wall==1 && !wallPic.equals("--")){
+            try {
+                Bitmap bitmap= BitmapFactory.decodeFile(wallPic);
+                bitmap= ImageUtils.compressByScale(bitmap,640,1134);
+                backDrawable=ConvertUtils.bitmap2Drawable(getResources(),bitmap);
+            }catch (Exception e){
+                backDrawable=null;
+            }
+        }
     }
     public void initLayout(){
         super.initMenu();
@@ -135,23 +155,13 @@ public class MainActivity extends MyBaseActivity implements Runnable{
                     MainActivity.this.showSnack(mCityPager,getResources().getText(R.string.snack_active).toString(),0);
                     return;
                 }
-                OnePlace onePlace=places.getCitys().get(mCityPager.getCurrentItem());
-                IWXAPI wxapi = WXAPIFactory.createWXAPI(MainActivity.this, "wx8165366cc17f9522");
-                String cityName=getResources().getString(R.string.value_wplease);
-                WXWebpageObject webpage = new WXWebpageObject();
-                webpage.webpageUrl = CommonHelper.path;
-                WXMediaMessage msg = new WXMediaMessage(webpage);
-                WeatherStatus status= WeatherTranslator.weatherTextTranslator(MainActivity.this,onePlace.curStatus);
-                msg.title = String.format(cityName, onePlace.uyCity.replace(" ","") , onePlace.curTmp, status.getuText());
-                msg.description = "";
-                Bitmap thumb = BitmapFactory.decodeResource(getResources(),status.getIconId());
-                thumb=CommonHelper.getWechatWhite(thumb);
-                msg.thumbData= ImageUtils.bitmap2Bytes(thumb, Bitmap.CompressFormat.PNG);
-                SendMessageToWX.Req req = new SendMessageToWX.Req();
-                req.transaction = String.valueOf(System.currentTimeMillis());
-                req.message = msg;
-                req.scene = SendMessageToWX.Req.WXSceneTimeline;
-                wxapi.sendReq(req);
+                /* 分享功能 */
+                screenShot();
+                ShareDialog.Builder builder = new ShareDialog.Builder(MainActivity.this);
+                builder.setMessage("");
+                builder.setTitle(getResources().getString(R.string.title_share));
+                builder.create().show();
+
             }
         });
         mAdd=(IconicsImageView)findViewById(R.id.add);
@@ -162,6 +172,128 @@ public class MainActivity extends MyBaseActivity implements Runnable{
                 startActivityForResult(intent, 0);
             }
         });
+    }
+//    public Bitmap takeScreenshot() {
+//        mCityPager.setDrawingCacheEnabled(true);
+//        return mCityPager.getDrawingCache();
+//    }
+//获取是否存在NavigationBar
+    public static boolean checkDeviceHasNavigationBar(Context context) {
+        boolean hasNavigationBar = false;
+        Resources rs = context.getResources();
+        int id = rs.getIdentifier("config_showNavigationBar", "bool", "android");
+        if (id > 0) {
+            hasNavigationBar = rs.getBoolean(id);
+        }
+        try {
+            Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
+            Method m = systemPropertiesClass.getMethod("get", String.class);
+            String navBarOverride = (String) m.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
+            if ("1".equals(navBarOverride)) {
+                hasNavigationBar = false;
+            } else if ("0".equals(navBarOverride)) {
+                hasNavigationBar = true;
+            }
+        } catch (Exception e) {
+
+        }
+        return hasNavigationBar;
+
+    }
+    private void screenShot()
+    {
+        if(isBannerReady){
+            if(bannerArea.getVisibility()==View.VISIBLE) bannerView.setVisibility(View.GONE);
+        }
+        // 获取状态栏高度
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        int homeBarHeight=0;
+        if(checkDeviceHasNavigationBar(this)){
+            homeBarHeight=144;
+        }
+        //获取当前屏幕的大小
+        int width = getWindow().getDecorView().getRootView().getWidth();
+        int height = getWindow().getDecorView().getRootView().getHeight();
+        //生成相同大小的图片
+        Bitmap temBitmap = Bitmap.createBitmap( 480, 800, Bitmap.Config.ARGB_8888 );
+        //找到当前页面的跟布局
+        View view =  getWindow().getDecorView().getRootView();
+        //设置缓存
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        //从缓存中获取当前屏幕的图片
+        temBitmap = view.getDrawingCache();
+        temBitmap = Bitmap.createBitmap(temBitmap, 0, statusBarHeight, width, height
+                - statusBarHeight-homeBarHeight);
+        Bitmap qrCode;
+        SharedPreferences pref = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        int language = pref.getInt("lang", -1);
+        if(language!=0){
+            qrCode=BitmapFactory.decodeResource(getResources(), R.drawable.qrcodezh);
+        }else {
+            qrCode=BitmapFactory.decodeResource(getResources(), R.drawable.qrcode);
+        }
+        temBitmap=mergeBitmap_TB(temBitmap,qrCode,false);
+        temBitmap=ImageUtils.compressByScale(temBitmap,600,1000);
+        view.destroyDrawingCache();
+        //输出到sd卡
+        if (true) {
+            File file = new File(CommonHelper.screenShotPic);
+            try {
+                File fPath = new File("/storage/emulated/0/yurtum");
+                if (!file.exists()) {
+                    fPath.mkdirs();
+                    file.createNewFile();
+                }
+                FileOutputStream foStream = new FileOutputStream(file);
+                temBitmap.compress(Bitmap.CompressFormat.PNG, 100, foStream);
+                foStream.flush();
+                foStream.close();
+                qrCode.recycle();
+                temBitmap.recycle();
+            } catch (Exception e) {
+                Log.i("Show", e.toString());
+            }
+        }
+        if(isBannerReady){
+            if(bannerArea.getVisibility()==View.GONE) bannerView.setVisibility(View.VISIBLE);
+        }
+    }
+    public static Bitmap mergeBitmap_TB(Bitmap topBitmap, Bitmap bottomBitmap, boolean isBaseMax) {
+        if (topBitmap == null || topBitmap.isRecycled()
+                || bottomBitmap == null || bottomBitmap.isRecycled()) {
+            return null;
+        }
+        int width = 0;
+        if (isBaseMax) {
+            width = topBitmap.getWidth() > bottomBitmap.getWidth() ? topBitmap.getWidth() : bottomBitmap.getWidth();
+        } else {
+            width = topBitmap.getWidth() < bottomBitmap.getWidth() ? topBitmap.getWidth() : bottomBitmap.getWidth();
+        }
+        Bitmap tempBitmapT = topBitmap;
+        Bitmap tempBitmapB = bottomBitmap;
+
+        if (topBitmap.getWidth() != width) {
+            tempBitmapT = Bitmap.createScaledBitmap(topBitmap, width, (int)(topBitmap.getHeight()*1f/topBitmap.getWidth()*width), false);
+        } else if (bottomBitmap.getWidth() != width) {
+            tempBitmapB = Bitmap.createScaledBitmap(bottomBitmap, width, (int)(bottomBitmap.getHeight()*1f/bottomBitmap.getWidth()*width), false);
+        }
+
+        int height = tempBitmapT.getHeight() + tempBitmapB.getHeight();
+
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+
+        Rect topRect = new Rect(0, 0, tempBitmapT.getWidth(), tempBitmapT.getHeight());
+        Rect bottomRect  = new Rect(0, 0, tempBitmapB.getWidth(), tempBitmapB.getHeight());
+
+        Rect bottomRectT  = new Rect(0, tempBitmapT.getHeight(), width, height);
+
+        canvas.drawBitmap(tempBitmapT, topRect, topRect, null);
+        canvas.drawBitmap(tempBitmapB, bottomRect, bottomRectT, null);
+        return bitmap;
     }
     private void initViewPager(int index){
         try {
@@ -230,7 +362,29 @@ public class MainActivity extends MyBaseActivity implements Runnable{
         }else {
             mTitle.setText(text);
         }
-        weatherBg.setBackgroundResource(resource);
+        SharedPreferences pref=getSharedPreferences("settings", Context.MODE_PRIVATE);
+        String wallPic=pref.getString("wallpaperPic","--");
+        int wall=pref.getInt("wallpaper",-1);
+        if(wall==1 && !wallPic.equals("--")){
+            try {
+                if(backDrawable==null){
+                    Bitmap bitmap= BitmapFactory.decodeFile(wallPic);
+                    bitmap= ImageUtils.compressByScale(bitmap,640,1134);
+                    backDrawable=ConvertUtils.bitmap2Drawable(getResources(),bitmap);
+                }
+                if(backDrawable==null){
+                    weatherBg.setBackgroundResource(resource);
+                }else {
+                    weatherBg.setBackground(backDrawable);
+                }
+
+            }catch (Exception e){
+                weatherBg.setBackgroundResource(resource);
+            }
+        }else{
+            weatherBg.setBackgroundResource(resource);
+        }
+
     }
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -456,6 +610,7 @@ public class MainActivity extends MyBaseActivity implements Runnable{
                             return false;
                         }
                     });
+                    isBannerReady=true;
                 }
             }
         }
@@ -465,7 +620,7 @@ public class MainActivity extends MyBaseActivity implements Runnable{
     {
         Intent intent = new Intent(this,WeatherService.class);
         startService(intent);
-        Intent intentTime = new Intent(this, TimeService.class);
+        Intent intentTime = new Intent(this, LocalService.class);
         this.startService(intentTime);
         SharedPreferences pref=MainActivity.this.getSharedPreferences("settings", Context.MODE_PRIVATE);
         double version=Double.valueOf(pref.getString("version",CommonHelper.appVersion));

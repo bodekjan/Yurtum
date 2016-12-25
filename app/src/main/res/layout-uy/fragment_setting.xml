@@ -17,7 +17,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:layout_marginTop="5dp" >
                 <LinearLayout
                     style="@style/SettingButtonStyle"
                     android:clickable="false">
@@ -84,7 +84,19 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:layout_marginTop="5dp" >
+                <LinearLayout
+                    android:id="@+id/moneybutton"
+                    style="@style/SettingButtonStyle">
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_coop"
+                        android:layout_marginRight="8dp" />
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/holo_red_dark"
+                        app:iiv_icon="gmi-book-image" />
+                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/setting_language"
                     style="@style/SettingButtonStyle">
@@ -158,24 +170,12 @@
                         app:iiv_color="@color/colorPrimaryDark"
                         app:iiv_icon="gmi-comments" />
                 </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/moneybutton"
-                    style="@style/SettingButtonStyle">
-                    <np.TextView
-                        style="@style/SettingItemStyle"
-                        android:text="@string/setting_coop"
-                        android:layout_marginRight="8dp" />
-                    <com.mikepenz.iconics.view.IconicsImageView
-                        style="@style/SettingIconStyle"
-                        app:iiv_color="@android:color/holo_red_dark"
-                        app:iiv_icon="gmi-favorite" />
-                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:layout_marginTop="5dp" >
                 <LinearLayout
                     android:id="@+id/versionbutton"
                     style="@style/SettingButtonStyle">

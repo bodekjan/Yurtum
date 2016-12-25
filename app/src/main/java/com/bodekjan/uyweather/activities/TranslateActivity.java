@@ -26,7 +26,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.utils.NetworkUtils;
 import com.bodekjan.uyweather.R;
-import com.bodekjan.uyweather.service.TimeService;
+import com.bodekjan.uyweather.service.LocalService;
 import com.bodekjan.uyweather.service.WeatherService;
 import com.bodekjan.uyweather.util.CommonHelper;
 import com.mikepenz.iconics.view.IconicsImageView;
@@ -162,7 +162,7 @@ public class TranslateActivity extends MyBaseActivity implements Runnable{
     {
         Intent intent = new Intent(this,WeatherService.class);
         startService(intent);
-        Intent intentTime = new Intent(this, TimeService.class);
+        Intent intentTime = new Intent(this, LocalService.class);
         this.startService(intentTime);
         SharedPreferences pref=TranslateActivity.this.getSharedPreferences("settings", Context.MODE_PRIVATE);
         int ad=pref.getInt("ad",-1); // 0 为显示

@@ -18,6 +18,9 @@
     <string name="snack_haswechat">未安装微信，没法激活</string>
     <string name="snack_swip">滑动编辑城市</string>
     <string name="snack_weather">当前是最新消息</string>
+    <string name="snack_sharesuccess">操作成功</string>
+    <string name="snack_shareerror">分享失败</string>
+    <string name="snack_sharecancel">取消分享</string>
     <!-- default value -->
     <string name="default_title">--</string>
     <string name="default_curtemp">--°</string>
@@ -34,6 +37,9 @@
     <string name="default_zone6">乌鲁木齐时间</string>
     <string name="default_zone8">北京时间</string>
     <string name="default_wechat">Yurtum 天气预报</string>
+    <string name="default_friend">分享给朋友</string>
+    <string name="default_circle">分享到朋友圈</string>
+    <string name="share_info">天气可以分享到微信</string>
     <!-- 错误城市 -->
     <string name="err_aksu">ئاقسۇ</string>
     <string name="err_aksuzh">阿克苏</string>
@@ -50,19 +56,20 @@
     <string name="translate_title">翻译</string>
     <string name="compass_title">指南针</string>
     <string name="comment_title">反馈</string>
-    <string name="adv_title">广告服务</string>
+    <string name="adv_title">天气背景</string>
     <string name="weather_mtitle">天气</string>
     <string name="weather_sevenday">七天预报</string>
     <string name="weather_threeday">三天预报</string>
     <string name="todayaqi">空气质量</string>
     <string name="title_about">关于</string>
     <string name="title_active">关于激活</string>
-    <string name="title_money">支持</string>
+    <string name="title_money">天气背景</string>
     <string name="title_comment">意见建议</string>
     <string name="title_learn">使用教程</string>
     <string name="title_oneday">24小时天气</string>
     <string name="title_advice">生活指标</string>
     <string name="title_news">今日头条</string>
+    <string name="title_share">天气分享</string>
     <string name="air_info">注意身体</string>
     <!-- static texts -->
     <string name="location_label">当前位置</string>
@@ -90,11 +97,13 @@
     <string name="button_backmain">返回主页</string>
     <string name="setting_lang">切换语言</string>
     <string name="setting_status">状态栏</string>
-    <string name="setting_ad">广告服务</string>
+    <string name="setting_bgapp">应用自带背景</string>
+    <string name="setting_bglocal">从相册选择</string>
+    <string name="setting_bgchoice">选择</string>
     <string name="setting_zone">时区</string>
     <string name="setting_inst">使用手册</string>
     <string name="setting_comment">意见反馈</string>
-    <string name="setting_coop">支持</string>
+    <string name="setting_coop">天气背景</string>
     <string name="setting_ver">应用版本</string>
     <string name="setting_newver">有新版本</string>
     <string name="setting_about">关于应用</string>
@@ -118,6 +127,7 @@
     <string name="value_uyghur">ئۇيغۇرچە</string>
     <string name="value_chinese">中文</string>
     <!-- variable values -->
+    <string name="value_justnow">刚刚发布的数据</string>
     <string name="value_pastminute">%1$s 分钟以前</string>
     <string name="value_pasthour">%1$s 小时以前</string>
     <string name="value_windspeed">%1$s 级风力</string>

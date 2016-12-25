@@ -26,10 +26,10 @@
                     <com.mikepenz.iconics.view.IconicsImageView
                         style="@style/SettingIconStyle"
                         app:iiv_color="@android:color/holo_blue_dark"
-                        app:iiv_icon="gmi-money" />
+                        app:iiv_icon="gmi-book-image" />
                     <np.TextView
                         style="@style/SettingItemStyle"
-                        android:text="@string/setting_ad"
+                        android:text="@string/setting_bgapp"
                         android:layout_marginRight="8dp" />
                     <ImageView
                         android:id="@+id/setting_ad_img"
@@ -39,22 +39,45 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/localpicarea"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" >
 
-                <np.TextView
+                <LinearLayout
+                    android:id="@+id/setting_wallselector"
+                    style="@style/SettingButtonStyle"
+                    android:clickable="false">
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/holo_blue_dark"
+                        app:iiv_icon="gmi-book-image" />
+
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_bglocal"
+                        android:layout_marginRight="8dp" />
+                    <np.Button
+                        style="@style/ALKATIP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:padding="4dp"
+                        android:textSize="12dp"
+                        android:background="@drawable/bg_submit_btn"
+                        android:textColor="@color/textcolor"
+                        android:text="@string/setting_bgchoice"
+                        android:id="@+id/selectimage" />
+                </LinearLayout>
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textColor="@color/textdark"
-                    android:textSize="13dp"
-                    android:text="@string/ad_info"
-                    android:id="@+id/textView2"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="480dp"
+                    android:id="@+id/localpic"
+                    android:layout_gravity="center"
+                    android:layout_margin="40dp"
+                    android:scaleType="fitXY" />
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

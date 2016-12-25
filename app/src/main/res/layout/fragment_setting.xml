@@ -87,6 +87,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" >
                 <LinearLayout
+                    android:id="@+id/moneybutton"
+                    style="@style/SettingButtonStyle">
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        style="@style/SettingIconStyle"
+                        app:iiv_color="@android:color/holo_red_dark"
+                        app:iiv_icon="gmi-book-image" />
+                    <np.TextView
+                        style="@style/SettingItemStyle"
+                        android:text="@string/setting_coop"
+                        android:layout_marginRight="8dp" />
+
+                </LinearLayout>
+                <LinearLayout
                     android:id="@+id/setting_language"
                     style="@style/SettingButtonStyle">
 
@@ -163,19 +176,7 @@
                         android:layout_marginRight="8dp" />
 
                 </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/moneybutton"
-                    style="@style/SettingButtonStyle">
-                    <com.mikepenz.iconics.view.IconicsImageView
-                        style="@style/SettingIconStyle"
-                        app:iiv_color="@android:color/holo_red_dark"
-                        app:iiv_icon="gmi-favorite" />
-                    <np.TextView
-                        style="@style/SettingItemStyle"
-                        android:text="@string/setting_coop"
-                        android:layout_marginRight="8dp" />
 
-                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"

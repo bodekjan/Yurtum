@@ -185,7 +185,7 @@ public class CityFragment extends Fragment {
         maxMin=(TextView)view.findViewById(R.id.maxmintmp);
         maxMin.setText(myPlace.maxTmp+"° / "+myPlace.minTmp+"°");
         curWind=(TextView)view.findViewById(R.id.wind);
-        String[] dayLabels=CommonHelper.daysLabel(getActivity(),myPlace.quickDate+" "+myPlace.quickTime);
+        String[] dayLabels=CommonHelper.daysLabel(getActivity(),myPlace.quickDate+" "+myPlace.quickTime); /* 注意这个地方有时候可能会零错误 */
         /* Today date */
         TextView dayTwoTime=(TextView)view.findViewById(R.id.daytwotime);
         Date today=new Date();
@@ -474,11 +474,13 @@ public class CityFragment extends Fragment {
         long longTime=new Date().getTime()-quickDate.getTime();
         int minute=CommonHelper.getPastMinutes(longTime);
         if(minute<0){
-            String stringValue=getResources().getString(R.string.value_pastminute);
-            strTime=String.format(stringValue, 44);
+//            String stringValue=getResources().getString(R.string.value_pastminute);
+//            strTime=String.format(stringValue, 44);
+            strTime=getResources().getString(R.string.value_justnow);
         }else if(minute<60){
-            String stringValue=getResources().getString(R.string.value_pastminute);
-            strTime=String.format(stringValue, minute);
+//            String stringValue=getResources().getString(R.string.value_pastminute);
+//            strTime=String.format(stringValue, minute);
+            strTime=getResources().getString(R.string.value_justnow);
         }else {
             String stringValue=getResources().getString(R.string.value_pasthour);
             strTime=String.format(stringValue, (int)(minute/60));
