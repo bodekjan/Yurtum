@@ -28,10 +28,10 @@
         android:theme="@style/MyTheme">
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="580c9edac895764480000c1c"/>
+            android:value="**********"/>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="WANDOUJIA"/>
+            android:value="*********"/>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
