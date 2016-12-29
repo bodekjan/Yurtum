@@ -15,7 +15,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PlatformConfig.setWeixin("wx8165366cc17f9522", "092b4d79f963cf738aacc282b20afd94");
+        PlatformConfig.setWeixin("***", "****");
         UMShareAPI.get(this);
         //Config.DEBUG = true;
         MyCrashHandler mCustomCrashHandler = MyCrashHandler.getInstance();
