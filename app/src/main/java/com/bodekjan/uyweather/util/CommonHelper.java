@@ -44,32 +44,32 @@ import java.util.List;
  * Created by bodekjan on 2016/9/7.
  */
 public class CommonHelper {
-    public static final String INTERSTITIAL = "925d7467d1bb87c3235a983e15b596f1";
-    public static final String BANNER = "ccad4aebbdb69ebf3135b24108f989ca";
-    public static final String APP_ID = "100044832";
-    public static final String SECRET_KEY = "8846d096ca947e5d6bfd642b37d71893";
+    public static final String INTERSTITIAL = "***";
+    public static final String BANNER = "***";
+    public static final String APP_ID = "***";
+    public static final String SECRET_KEY = "***";
     public static final String appVersion="1.7";
     public static final int dbVersion=6;
     public static int serviceTime=30;
     public static int refreshTime=60;
     public static int detailTime=180;
-    public static String checkIp="http://115.159.28.64:8080/project.weather/rest/getip";
+    public static String checkIp="***";
     //public static String ipFindCity = "http://apis.baidu.com/showapi_open_bus/ip/ip"; /* 出错率很高*/
-    public static String ipFindCity = "http://apis.baidu.com/apistore/iplookupservice/iplookup";
-    public static String checkCity = "http://apis.baidu.com/apistore/weatherservice/cityinfo";
-    public static String checkCitySecound = "http://apis.baidu.com/apistore/weatherservice/cityname";
-    public static String quickCity = "http://apis.baidu.com/apistore/weatherservice/cityid";
-    public static String quickCitySecound="http://wthrcdn.etouch.cn/WeatherApi";
-    public static String quickCityThird = "http://apis.baidu.com/apistore/weatherservice/cityname";
-    public static String quickCityWeather = "http://wthrcdn.etouch.cn/weather_mini?citykey=";
-    public static String dayDetail="http://115.159.28.64:8080/project.weather/rest/gettoday/";
-    public static String commentUrl="http://115.159.28.64:8080/project.weather/rest/comment";
-    public static String translate="http://115.159.28.64:8080/project.languageall/rest/translata/";
-    public static String quickNews = "http://www.hawar.cn/index.shtml";
+    public static String ipFindCity = "***";
+    public static String checkCity = "***";
+    public static String checkCitySecound = "***";
+    public static String quickCity = "***";
+    public static String quickCitySecound="***";
+    public static String quickCityThird = "***";
+    public static String quickCityWeather = "***";
+    public static String dayDetail="***";
+    public static String commentUrl="***";
+    public static String translate="***";
+    public static String quickNews = "***";
     public static int NOTIFICATION=55;
-    public static String screenShotPic="/storage/emulated/0/yurtum/share4.jpg";
+    public static String screenShotPic="***";
     /* 微信的 */
-    public static String path="http://uyweather.azurewebsites.net/appmoment.html";
+    public static String path="***";
     public static ArrayList<AppCompatActivity> activities=new ArrayList<AppCompatActivity>();
     public static String buildTransaction(String type) {
         return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
@@ -130,7 +130,7 @@ public class CommonHelper {
                     .openConnection();
             connection.setRequestMethod("GET");
             // 填入apikey到HTTP header
-            connection.setRequestProperty("apikey",  "742f1f61e7d1f794e64bd23959420c87");
+            connection.setRequestProperty("apikey",  "***");
             connection.connect();
             InputStream is = connection.getInputStream();
             reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -184,7 +184,7 @@ public class CommonHelper {
 //                    .openConnection();
 //            connection.setRequestMethod("GET");
 //            // 填入apikey到HTTP header
-//            connection.setRequestProperty("apikey",  "742f1f61e7d1f794e64bd23959420c87");
+//            connection.setRequestProperty("apikey",  "***");
 //            connection.connect();
 //            InputStream is = connection.getInputStream();
 //            reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -531,7 +531,7 @@ public class CommonHelper {
                     .openConnection();
             connection.setRequestMethod("GET");
             // 填入apikey到HTTP header
-            connection.setRequestProperty("apikey",  "742f1f61e7d1f794e64bd23959420c87");
+            connection.setRequestProperty("apikey",  "***");
             connection.connect();
             InputStream is = connection.getInputStream();
             reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
